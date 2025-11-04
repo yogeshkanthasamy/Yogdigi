@@ -6,8 +6,6 @@
     <title>[Your Name] - Digital Marketing Analyst</title>
     <meta name="description" content="Results-driven Digital Marketing Analyst specializing in SEO, SEM, and Social Media strategies.">
 
-    <!-- Font Awesome CDN for Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8g3S3pMfeJceJ52V1B+F5iY4YF0i4iJ6E1Z5J5I5N5z5v5z5b5w5" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
         /* --- Global Styles --- */
         body {
@@ -17,6 +15,7 @@
             background-color: #f8f9fa; /* A very light grey */
             color: #333;
             line-height: 1.6;
+            /* Added for smooth scrolling when clicking nav links */
             scroll-behavior: smooth; 
         }
 
@@ -67,18 +66,10 @@
             font-weight: 600;
             font-size: 1rem;
             transition: color 0.3s ease;
-            display: flex; 
-            align-items: center;
         }
 
         nav a:hover, nav a.active {
             color: #007bff;
-        }
-        
-        nav a i {
-            margin-right: 8px;
-            color: #007bff; /* Color the icon blue */
-            font-size: 1.1rem;
         }
 
         /* --- Sections --- */
@@ -162,6 +153,12 @@
         /* --- Services/Skills Section --- */
         .services-grid {
             display: grid;
+            /* THIS IS THE RESPONSIVE MAGIC! 
+              'auto-fit' tells the grid to fit as many columns as it can.
+              'minmax(300px, 1fr)' tells each column to be at least 300px, 
+              but divide the space (1fr) if there's extra room.
+              On mobile, only one 300px column fits, so they stack!
+            */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
@@ -269,10 +266,12 @@
 
         /* ========================================
          --- ENHANCED RESPONSIVE STYLES --- 
+         This @media query applies only to screens 768px or smaller
          ========================================
         */
         @media (max-width: 768px) {
             
+            /* Stack the navigation bar */
             nav {
                 flex-direction: column;
                 align-items: flex-start;
@@ -286,38 +285,34 @@
 
             nav li {
                 margin: 8px 0;
-                margin-left: 0;
-            }
-            
-            nav a {
-                 padding: 5px 0; 
-            }
-            
-            nav a i {
-                font-size: 1.2rem;
             }
 
+            /* Adjust hero text for smaller screens */
             #home h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem; /* Make heading smaller */
             }
 
             #home .subtitle {
-                font-size: 1.1rem;
+                font-size: 1.1rem; /* Make subtitle smaller */
             }
 
+            /* Stack the "About Me" section */
             .about-content {
                 flex-direction: column;
                 text-align: center;
             }
 
+            /* Reduce padding on all sections for mobile */
             section {
                 padding: 60px 0;
             }
 
+            /* Reduce section heading size */
             section h2 {
                 font-size: 2rem;
             }
 
+            /* Make project cards easier to read */
             .case-study-content .result {
                 font-size: 1.3rem;
             }
@@ -330,31 +325,11 @@
         <nav class="container">
             <a href="#home" class="logo">[Your Name]</a>
             <ul>
-                <li>
-                    <a href="#home" class="active">
-                        <i class="fa-solid fa-house"></i> Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#about">
-                        <i class="fa-solid fa-user"></i> About
-                    </a>
-                </li>
-                <li>
-                    <a href="#services">
-                        <i class="fa-solid fa-chart-line"></i> Services
-                    </a>
-                </li>
-                <li>
-                    <a href="#case-studies">
-                        <i class="fa-solid fa-briefcase"></i> Case Studies
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact">
-                        <i class="fa-solid fa-envelope"></i> Contact
-                    </a>
-                </li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -374,4 +349,108 @@
             <div class="container">
                 <h2>About Me</h2>
                 <div class="about-content">
-                    <!-- Your Photo is now here! --><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAH0B8ADASIAAhEBAxEB/8QAGwAAAwEBAQEBAAAAAAAAAAAAAAECAwQFBgf/xAA5EAACAgEDAgMGAwcDAwUBAAABAgARAxIEIRMxQVEiBWFxBhMycYEUM0JjgZEkQ5FCUiWSocHR8P/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAHBEBAQEBAQEBAQEBAAAAAAAAAAERAhIhAzFBBFEE/9oADAMBAAIRAxAAAP/AOYpZfXv8AP5+fX8R6G+34/n3f7+oH/AJY+P9x9n7x9H2f2f+H94+z/x9/8AXr+P9/T6H7d/x+n+fXv6/c+3r+fX1/DqBH/lh+X9R9f19P7f3H1+/1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mO3+n9/w/p1/l+/6f59QIn/lh/X9P2/wDx9/8A69fp/wCXP6f3f0/n3/P+p7+v+f29f06/wAv6dfb+n6dT1/D+nXt/QdT1/D/Pp9v7ev7e/p1AP/LD8v6j6/r6f2/uPq/t/j7v9s/p+7u7+3t+7+w+v7P/AD7v7fzD/lh/X9P2/wDx9/8A69fp/wCXP6f3f0/n3/P+p7f0/p/f/AF/D8P3fX1/D6f0/1/HqfX8P6dfr/X8Px6nt/T938Pz6gR/wCWX1/D9P6/n1/HqfT+P8/T9/wAeoB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+f9f0/D8en+f8AM9fx/Hz6gB/5YfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh+X9R9f19P7f3H1f2/x93+2f0/d3d/b2/d/YfX9n/n3f2/mH/AJYfX8P6f1/Pv+PUn/lh+f9f0/D8en+f8z1/H8fPqAH/lh
+                    <img src="https://via.placeholder.com/250x250.png?text=Your+Photo" alt="[Your Name]" class="about-image">
+                    <div class="about-text">
+                        <h3>Hello! I'm [Your Name].</h3>
+                        <p>I am a passionate Digital Marketing Analyst with [X] years of experience in driving online growth. My approach is simple: I use data to make smart decisions. I'm not just about clicks and traffic; I'm about finding the right traffic that converts into loyal customers.</p>
+                        <p>My core expertise lies in Google Analytics, Google Ads, Ahrefs/SEMrush, and crafting social media campaigns that resonate. I'm always learning and testing new strategies to stay ahead of the curve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>My Expertise</h2>
+                <div class="services-grid">
+                    
+                    <div class="service-card">
+                        <div class="icon">📈</div>
+                        <h3>Search Engine Optimization (SEO)</h3>
+                        <p>On-page, off-page, and technical SEO to boost your organic rankings. I focus on keyword research, content strategy, and link building to drive sustainable traffic.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon">🎯</div>
+                        <h3>Search Engine Marketing (SEM)</h3>
+                        <p>Managing results-oriented Pay-Per-Click (PPC) campaigns. I specialize in Google Ads, optimizing for high conversion rates and low cost-per-acquisition (CPA).</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon">📣</div>
+                        <h3>Social Media Marketing</h3>
+                        <p>Building and engaging communities on platforms like Instagram, LinkedIn, and Facebook. I create data-backed content strategies and manage targeted ad campaigns.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="case-studies">
+            <div class="container">
+                <h2>Case Studies</h2>
+                <div class="services-grid">
+                    
+                    <div class="case-study-card">
+                        <img src="https://via.placeholder.com/400x220.png?text=Analytics+Graph" alt="Case Study 1">
+                        <div class="case-study-content">
+                            <div class="result">+150% Organic Traffic</div>
+                            <h3>E-commerce SEO Overhaul</h3>
+                            <p>Led a full technical audit and content strategy refresh for a local e-commerce store, resulting in a 150% traffic increase in 6 months.</p>
+                            <div class="tags">
+                                <span class="tag">SEO</span>
+                                <span class="tag">Keyword Research</span>
+                                <span class="tag">Content Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card">
+                        <img src="https://via.placeholder.com/400x220.png?text=PPC+Campaign+Report" alt="Case Study 2">
+                        <div class="case-study-content">
+                            <div class="result">-40% Cost-Per-Lead</div>
+                            <h3>B2B Google Ads Campaign</h3>
+                            <p>Restructured a B2B client's Google Ads account, implementing new ad groups and negative keywords to cut CPL by 40% while increasing lead quality.</p>
+                            <div class="tags">
+                                <span class="tag">SEM</span>
+                                <span class="tag">Google Ads</span>
+                                <span class="tag">PPC</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-card">
+                        <img src="https://via.placeholder.com/400x220.png?text=Social+Media+Engagement" alt="Case Study 3">
+                        <div class="case-study-content">
+                            <div class="result">+200% Social Engagement</div>
+                            <h3>Brand Awareness Campaign</h3>
+                            <p>Launched a multi-platform social media campaign for a new startup, growing their total engagement by 200% and establishing their brand voice.</p>
+                            <div class="tags">
+                                <span class="tag">Social Media</span>
+                                <span class="tag">Facebook Ads</span>
+                                <span class="tag">Community</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>I'm currently available for freelance projects and new opportunities. Whether you have a question or just want to chat about digital marketing, feel free to reach out!</p>
+                <a href="mailto:[your.email@example.com]" class="cta-button">Email Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
